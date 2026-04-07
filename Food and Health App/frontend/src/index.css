@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0a0e1a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #334370;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:bg-white/10 hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/10;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-300;
+  }
+
+  .gradient-border {
+    @apply border border-transparent bg-clip-padding;
+    background-image: linear-gradient(#0f172a, #0f172a), linear-gradient(135deg, #10b981, #06b6d4);
+    background-origin: padding-box, border-box;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-xl
+           transition-all duration-300 hover:from-emerald-400 hover:to-teal-400
+           hover:shadow-lg hover:shadow-emerald-500/25 active:scale-95 disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white/5 border border-white/10 text-white font-medium rounded-xl
+           transition-all duration-300 hover:bg-white/10 hover:border-emerald-500/30;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 bg-red-500/10 border border-red-500/20 text-red-400 font-medium rounded-xl
+           transition-all duration-300 hover:bg-red-500/20 hover:border-red-500/40;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white
+           placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10
+           transition-all duration-300;
+  }
+
+  .select-field {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white
+           focus:outline-none focus:border-emerald-500/50 focus:bg-white/10
+           transition-all duration-300 appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25em 1.25em;
+  }
+
+  .select-field option {
+    background: #1a2340;
+    color: #e2e8f0;
+  }
+
+  .page-container {
+    @apply p-6 md:p-8 max-w-7xl mx-auto animate-fade-in;
+  }
+
+  .page-title {
+    @apply text-3xl md:text-4xl font-bold mb-2;
+  }
+
+  .page-subtitle {
+    @apply text-gray-400 text-lg mb-8;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-300 mb-2;
+  }
+
+  .macro-protein {
+    @apply bg-blue-500;
+  }
+
+  .macro-carbs {
+    @apply bg-amber-500;
+  }
+
+  .macro-fats {
+    @apply bg-pink-500;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .tag-breakfast {
+    @apply tag bg-orange-500/20 text-orange-300 border border-orange-500/20;
+  }
+
+  .tag-lunch {
+    @apply tag bg-emerald-500/20 text-emerald-300 border border-emerald-500/20;
+  }
+
+  .tag-dinner {
+    @apply tag bg-purple-500/20 text-purple-300 border border-purple-500/20;
+  }
+
+  .tag-snack {
+    @apply tag bg-amber-500/20 text-amber-300 border border-amber-500/20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Ring progress animation */
+.ring-progress {
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+/* Shimmer loading effect */
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Gradient background mesh */
+.bg-mesh {
+  background-image:
+    radial-gradient(at 27% 37%, hsla(160, 64%, 43%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 97% 21%, hsla(198, 64%, 43%, 0.06) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(220, 64%, 43%, 0.05) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(190, 64%, 43%, 0.04) 0px, transparent 50%);
+}
+
+/* ═══ Health Score Animations ═══ */
+
+/* Arc stroke animation */
+.health-score-arc {
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle glow pulse on the card */
+.health-score-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.health-score-card:hover {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.08);
+}
+
+/* Breakdown bar fill animation */
+.health-bar-fill {
+  width: 0;
+  animation: barGrow 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes barGrow {
+  0% { width: 0; }
+  100% { width: var(--bar-width, 0%); }
+}
+
+/* Ring subtle rotate on hover */
+.health-score-ring {
+  transition: transform 0.4s ease;
+}
+
+.health-score-card:hover .health-score-ring {
+  transform: scale(1.03);
+}
+
